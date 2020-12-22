@@ -7,6 +7,7 @@ import { DeletedTextRun, InsertedTextRun } from "../track-revision";
 import { PageBreak } from "./formatting/page-break";
 import { Bookmark, HyperlinkRef } from "./links";
 import { Math } from "./math";
+import { Omath } from "./omath";
 import { IParagraphPropertiesOptions, ParagraphProperties } from "./properties";
 import { PictureRun, Run, SequentialIdentifier, SymbolRun, TextRun } from "./run";
 
@@ -24,6 +25,7 @@ export interface IParagraphOptions extends IParagraphPropertiesOptions {
         | InsertedTextRun
         | DeletedTextRun
         | Math
+        | Omath
     )[];
 }
 

@@ -17,6 +17,7 @@ import {
     MathSubSuperScript,
     MathSum,
     MathSuperScript,
+    Omath,
     Packer,
     Paragraph,
     TextRun,
@@ -24,6 +25,19 @@ import {
 
 const doc = new Document();
 
+doc.addSection({
+    properties: {},
+    children: [
+        new Paragraph({
+            children: [
+                new Omath("m:oMath ", {
+                    "m:r": {
+                    "m:t": "e=m"
+                }})
+            ]
+        })
+    ]
+})
 doc.addSection({
     properties: {},
     children: [

@@ -85,7 +85,7 @@ export class File {
         this.appProperties = new AppProperties();
         this.footNotes = new FootNotes();
         this.contentTypes = new ContentTypes();
-        this.document = new Document();
+        this.document = new Document({ background: options.background || {} });
         this.settings = new Settings();
 
         this.media = fileProperties.template && fileProperties.template.media ? fileProperties.template.media : new Media();
@@ -106,7 +106,7 @@ export class File {
             this.styles = stylesFactory.newInstance(options.externalStyles);
         } else if (options.styles) {
             const stylesFactory = new DefaultStylesFactory();
-            const defaultStyles = stylesFactory.newInstance();
+            const defaultStyles = stylesFactory.newInstance(options.styles.default);
             this.styles = new Styles({
                 ...defaultStyles,
                 ...options.styles,
@@ -169,6 +169,12 @@ export class File {
             }
 
             this.hyperlinkCache = cache;
+        }
+
+        if (options.features) {
+            if (options.features.trackRevisions) {
+                this.settings.addTrackRevisions();
+            }
         }
     }
 

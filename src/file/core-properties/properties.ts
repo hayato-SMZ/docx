@@ -1,4 +1,5 @@
 import { XmlComponent } from "file/xml-components";
+import { IDocumentBackgroundOptions } from "../document";
 
 import { DocumentAttributes } from "../document/document-attributes";
 import { INumberingOptions } from "../numbering";
@@ -31,6 +32,10 @@ export interface IPropertiesOptions {
     readonly footnotes?: Paragraph[];
     readonly hyperlinks?: {
         readonly [key: string]: IInternalHyperlinkDefinition | IExternalHyperlinkDefinition;
+    };
+    readonly background?: IDocumentBackgroundOptions;
+    readonly features?: {
+        readonly trackRevisions?: boolean;
     };
 }
 

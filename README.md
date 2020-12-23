@@ -3,6 +3,9 @@
 </p>
 
 <p align="center">
+This Project is Docx fork. Add OMath Object.
+</p>
+<p align="center">
     Easily generate .docx files with JS/TS. Works for Node and on the Browser.
 </p>
 

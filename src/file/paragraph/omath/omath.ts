@@ -4,11 +4,11 @@ import { XmlComponent } from "file/xml-components";
 export class Omath extends XmlComponent {
     constructor(key: string, children: object | string) {
         super(key);
-        if (typeof children === "string") {
+        if (key === "m:t" || typeof children === "string") {
             this.root.push(children);
         } else {
             for (const childKey in children) {
-                if (children[childKey] !== undefined) {
+                if (typeof children[childKey] !== "string") {
                     this.root.push(new Omath(childKey, children[childKey]));
                 }
             }

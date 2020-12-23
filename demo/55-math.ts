@@ -1,6 +1,7 @@
 // Simple example to add text to a document
 // Import from 'docx' rather than '../build' if you install from npm
 import * as fs from "fs";
+
 import {
     Document,
     Math,
@@ -30,10 +31,24 @@ doc.addSection({
     children: [
         new Paragraph({
             children: [
-                new Omath("m:oMath ", {
+                new Omath("m:oMath", {
                     "m:r": {
                     "m:t": "e=m"
-                }})
+                    },
+                    "m:sSup": {
+                        "m:e": {
+                            "m:r": {
+                                "m:t": "c"
+                            }
+                        },
+                        "m:sup": {
+                            "m:r": {
+                                "m:t": "2"
+                            }
+                        }
+                    }
+                }),
+                new Omath("m:oMath", formula["m:oMath"])
             ]
         })
     ]

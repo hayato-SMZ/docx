@@ -1,6 +1,6 @@
 {
-  "name": "docx_addOmathVer",
-  "version": "5.3.1",
+  "name": "docx_add_omath",
+  "version": "5.3.2",
   "description": "Easily generate .docx files with JS/TS with a nice declarative API. Works for Node and on the Browser.",
   "main": "build/index.js",
   "scripts": {
@@ -52,6 +52,7 @@
   "dependencies": {
     "@types/jszip": "^3.1.4",
     "@types/node": "^14.0.5",
+    "fast-xml-parser": "^3.17.5",
     "jszip": "^3.1.5",
     "shortid": "^2.2.15",
     "xml": "^1.0.1",

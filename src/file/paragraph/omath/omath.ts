@@ -3,9 +3,9 @@ import { XmlComponent } from "file/xml-components";
 
 export interface IOMathObject {
     readonly tag: string;
-    readonly attr: object[] | undefined;
-    readonly children: IOMathObject[] | string | undefined;
-    readonly text: string;
+    readonly attr?: object[];
+    readonly children?: IOMathObject[] | string;
+    readonly text?: string;
 }
 
 export class Omath extends XmlComponent {

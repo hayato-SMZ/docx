@@ -13,7 +13,13 @@ export class Omath extends XmlComponent {
         super(oMathObject.tag);
 
         if (oMathObject.attr !== undefined) {
-            this.root.push(new OmathAttributes(oMathObject.attr));
+            const attr = {};
+            for (const childKey in oMathObject.attr) {
+                if (childKey !== undefined) {
+                    attr[childKey.replace(/@/, "")] = oMathObject.attr[childKey];
+                }
+            }
+            this.root.push({ _attr: attr });
         }
         if (oMathObject.tag === "m:t") {
             this.root.push(oMathObject.text);
@@ -24,23 +30,5 @@ export class Omath extends XmlComponent {
                 });
             }
         }
-    }
-}
-
-export class OmathAttributes extends XmlComponent {
-    constructor(attribute: object) {
-        super("_attr");
-        for (const childKey in attribute) {
-            if (childKey !== undefined) {
-                this.root[childKey] = attribute[childKey];
-            }
-        }
-    }
-}
-
-export class OmathAttribute extends XmlComponent {
-    constructor(key: string, value: string) {
-        super(key.replace("@", ""));
-        this.root.push(value);
     }
 }

@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { Formatter } from "export/formatter";
-import { IOMathObject, Omath, OmathAttribute, OmathAttributes } from "./omath";
+import { IOMathObject, Omath } from "./omath";
 
 describe("Omath", () => {
     describe("#constructor()", () => {
@@ -98,35 +98,6 @@ describe("Omath", () => {
                                 ],
                             },
                         ],
-                    },
-                ],
-            });
-        });
-    });
-    describe("#Attributes()", () => {
-        it("createAttribute Object", () => {
-            const attribute = new OmathAttribute("@xmlns:m", "http://schemas.openxmlformats.org/officeDocument/2006/math");
-            const tree = new Formatter().format(attribute);
-            expect(tree).to.deep.equal({
-                "xmlns:m": ["http://schemas.openxmlformats.org/officeDocument/2006/math"],
-            });
-        });
-    });
-    describe("#Attributes()", () => {
-        it("createAttributes Object", () => {
-            const sampleObj: object = {
-                "@xmlns:m": "http://schemas.openxmlformats.org/officeDocument/2006/math",
-                "@xmlns:mml": "http://www.w3.org/1998/Math/MathML",
-            };
-            const attributes = new OmathAttributes(sampleObj);
-            const tree = new Formatter().format(attributes);
-            expect(tree).to.deep.equal({
-                _attr: [
-                    {
-                        "xmlns:m": ["http://schemas.openxmlformats.org/officeDocument/2006/math"],
-                    },
-                    {
-                        "xmlns:mml": ["http://www.w3.org/1998/Math/MathML"],
                     },
                 ],
             });

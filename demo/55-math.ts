@@ -31,24 +31,131 @@ doc.addSection({
     children: [
         new Paragraph({
             children: [
-                new Omath("m:oMath", {
-                    "m:r": {
-                    "m:t": "e=m"
+                new Omath({
+                    "tag": "m:oMath",
+                    "attr": {
+                        "@xmlns:m": "http://schemas.openxmlformats.org/officeDocument/2006/math",
+                        "@xmlns:mml": "http://www.w3.org/1998/Math/MathML"
                     },
-                    "m:sSup": {
-                        "m:e": {
-                            "m:r": {
-                                "m:t": "c"
-                            }
+                    "children": [
+                        {
+                            "tag": "m:nary",
+                            "children": [
+                                {
+                                    "tag": "m:naryPr",
+                                    "children": [
+                                        { "tag": "m:chr", "attr": { "@m:val": "∫" } },
+                                        { "tag": "m:limLoc", "attr": { "@m:val": "subSup" } },
+                                        { "tag": "m:grow", "attr": { "@m:val": "1" } },
+                                        { "tag": "m:subHide", "attr": { "@m:val": "off" } },
+                                        { "tag": "m:supHide", "attr": { "@m:val": "off" } }
+                                    ]
+                                },
+                                {
+                                    "tag": "m:sub",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "a" }] }
+                                    ]
+                                },
+                                {
+                                    "tag": "m:sup",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "b" }] }
+                                    ]
+                                },
+                                { "tag": "m:e", "text": "" }
+                            ]
                         },
-                        "m:sup": {
-                            "m:r": {
-                                "m:t": "2"
-                            }
-                        }
-                    }
-                }),
-                new Omath("m:oMath", formula["m:oMath"])
+                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "f(x)dx=" }] },
+                        {
+                            "tag": "m:limLow",
+                            "children": [
+                                {
+                                    "tag": "m:e",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "lim" }] }
+                                    ]
+                                },
+                                {
+                                    "tag": "m:lim",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "n→" }] },
+                                        {
+                                            "tag": "m:r",
+                                            "children": [
+                                                {
+                                                    "tag": "m:rPr",
+                                                    "children": [
+                                                        { "tag": "m:sty", "attr": { "@m:val": "p" }}
+                                                    ]
+                                                },
+                                                { "tag": "m:t", "text": "∞" }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "m:nary",
+                            "children": [
+                                {
+                                    "tag": "m:naryPr",
+                                    "children": [
+                                        { "tag": "m:chr", "attr": { "@m:val": "∑" } },
+                                        { "tag": "m:limLoc", "attr": { "@m:val": "undOvr" } },
+                                        { "tag": "m:grow", "attr": { "@m:val": "1" } },
+                                        { "tag": "m:subHide", "attr": { "@m:val": "off" } },
+                                        { "tag": "m:supHide", "attr": { "@m:val": "off" } }
+                                    ]
+                                },
+                                {
+                                    "tag": "m:sub",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "i=0" }] }
+                                    ]
+                                },
+                                {
+                                    "tag": "m:sup",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "n−1" }] }
+                                    ]
+                                },
+                                { "tag": "m:e", "text": "" }
+                            ]
+                        },
+                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "f(" }] },
+                        {
+                            "tag": "m:sSub",
+                            "children": [
+                                {
+                                    "tag": "m:e",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "x" }] }
+                                    ]
+                                },
+                                {
+                                    "tag": "m:sub",
+                                    "children": [
+                                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "i" }] }
+                                    ]
+                                }
+                            ]
+                        },
+                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": ")" }] },
+                        {
+                            "tag": "m:r",
+                            "children": [
+                                {
+                                    "tag": "m:rPr",
+                                    "children": [{ "tag": "m:sty", "attr": { "@m:val": "p" } }]
+                                },
+                                { "tag": "m:t", "text": "Δ" }
+                            ]
+                        },
+                        { "tag": "m:r", "children": [{ "tag": "m:t", "text": "x" }] }
+                    ]
+                })
             ]
         })
     ]

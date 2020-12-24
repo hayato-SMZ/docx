@@ -3,7 +3,7 @@ import { XmlComponent } from "file/xml-components";
 
 export interface IOMathObject {
     readonly tag: string;
-    readonly attr?: object[];
+    readonly attr?: object;
     readonly children?: IOMathObject[] | string;
     readonly text?: string;
 }
@@ -32,7 +32,7 @@ export class OmathAttributes extends XmlComponent {
         super("_attr");
         for (const childKey in attribute) {
             if (childKey !== undefined) {
-                this.root.push(new OmathAttribute(childKey, attribute[childKey]));
+                this.root[childKey] = attribute[childKey];
             }
         }
     }

@@ -40,7 +40,7 @@ export class OmathAttributes extends XmlComponent {
 
 export class OmathAttribute extends XmlComponent {
     constructor(key: string, value: string) {
-        super(key);
+        super(key.replace("@", ""));
         this.root.push(value);
     }
 }
